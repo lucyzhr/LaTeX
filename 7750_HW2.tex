@@ -27,6 +27,7 @@
 %\usepackage{geometry}
 %\geometry[letterpaper]
 %\geometry{margin=2.5cm}
+\usepackage{ams math}%Required for multiline formula.
 \usepackage{amsfonts}% Required for mathematical characters
 \usepackage{fancyhdr} % Required for custom headers
 \usepackage{lastpage} % Required to determine the last page for the footer
@@ -150,7 +151,7 @@
 %	NAME AND CLASS SECTION
 %----------------------------------------------------------------------------------------
 
-\newcommand{\hmwkTitle}{Homework\ \#1} % Assignment title
+\newcommand{\hmwkTitle}{Homework\ \#2} % Assignment title
 \newcommand{\hmwkDueDate}{Thursday,\ September\ 12,\ 2013} % Due date
 \newcommand{\hmwkClass}{STAT\ 7750} % Course/class
 \newcommand{\hmwkClassTime}{2:00pm} % Class/lecture time
@@ -195,82 +196,71 @@
 % To have just one problem per page, simply put a \clearpage after each problem
 
 \begin{homeworkProblem}
-\begin{enumerate}
-
-%Listing \ref{homework_example} shows a Perl script.
-
-%\perlscript{homework_example}{Sample Perl Script With Highlighting}
-
-%\lipsum[1]
-
-%\problemAnswer{
-%\begin{center}
-%\end{center}
 Denote G="Good card", and P="Penalty card".
+
 \begin{enumerate}
-\item
-As we know , 
+\item As we know , 
 \begin{center}
 $S_A=\{G,G,G,P,P\}$.
 \end{center}
 Therefore, 
 \begin{center}
- $P($\mathit{A}$ \ Good)=\frac{P(\{G,G,G\})}{P(S_A)}= \frac{3}{5}$
+ $P(\mathit{A} \ Good)=\frac{P(\{G,G,G\})}{P(S_A)}= \frac{3}{5}$
 \end{center}
 \item
-For the reason that player $\mathit{B}$ chooses a card after player A. the all possible events of $\mathit{B}$ is:
+For the reason that player $\mathit{B}$ chooses a card after player $\mathit{A}$. the exhaustive events of $\mathit{B}$ is:
 \begin{center}
 $S_B=\{G,G,P,P\}$
 \end{center}
-Therefore, the probability of "B Good" is:
+Therefore, the probability of "B Good" with given "A good" is:
 \begin{center}
-$P($\mathit{B}$ \ good| $\mathit{A}$ \ good)=\frac{2}{4}=\frac{1}{2}$
+$P(\mathit{B} \ good| \mathit{A} \ good)=\frac{2}{4}=\frac{1}{2}$
 \end{center}
 \item
-Because A is "bad", all of the possible events of B is:
+Because $\mathit{A}$ is "bad", $\mathit{B}$'s exhaustive events are:
 \begin{center}
-$S_B=\{G,G,G,B\}$
+$S_B=\{G,G,G,P\}$
 \end{center}
-Therefore, the "B bad" possibility is:
+Therefore, the "B bad" possibility with given "A bad" is:
 \begin{center}
-
-$P(B \ good | A)=\frac{3}{4}$
+$P(\mathit{B} \ good | \mathit{A} \ bad)=\frac{P(\{G,G,G\})}{P(\{G,G,G,P\})}=\frac{3}{4}$
 \end{center}
-
 \item
-
-\end{enumerate}
-
-
-
-
-
-%\begin{enumerate}
-\item Two events $\mathit{A}$ and $\mathit{B}$ are independent if:
+Based on (1.5.5),
 \begin{center}
-$P(A \cap B) = P(A)*P(B)$
+$P(\mathit{B} \ good \cap \mathit{A} \ good)=P(\mathit{A}\ good)P(\mathit{B} \ good | \mathit{A} \ good)=\frac{3}{5}*\frac{1}{2}=\frac{3}{10}$
 \end{center}
-Obviously, \begin{center} $P(A \cap B) =0.031, and \ P(A)*P(B)=0.007242$
-\end{center}
-thus, $\mathit{A}$ and $\mathit{B}$ are called dependent.
 \item
-For a randomly selected Mexican American newborn, the probability that $\mathit{A}$ occurs is:
+Assuming the cards are distinct, we denote the good cards are $\mathit{G}_1$, $\mathit{G}_2$ and $\mathit{G}_3$. And the bad cards are $\mathit{P}_1$ and $\mathit{P}_2$. Therefore, the the sample space of ordered pairs is:
 \begin{center}
-$P(A)=0.142$
+$S =
+\{G_1G_2,G_1G_3,G_1P_1,G_1P_2,$ $G_2G_1,G_2G_3,G_2P_1,G_2P_2,$\\
+$G_3G_1,G_3G_2,G_3P_1,G_3P_2,$
+$P_1G_1,P_1G_2,P_1G_3,P_1P_2,$
+$P_2G_1,P_2G_2,P_2G_3,P_2G_2,\}$
+$S_{(B \ good | A \ good)}=\{(G_1,G_2)| G_3\}\ or \{(G_2,G_3)| G_1\} \ or \{(G_1,G_3)|G_2 \}$
+$S_{(B \ good \cap A \ good)}=\{G_1G_2,G_1G_3,G_2G_1,G_2G_3,G_3G_1,G_3G_2\}$
+
 \end{center}
-For a randomly selected Mexican American newborn, the probability that $\mathit{B}$ occurs is:
+Therefore, 
 \begin{center}
-$P(B)=0.051$
+$P(\mathit{B} \ good \cap \mathit{A} \ good)=\frac{S_{(B \ good | A \ good)}}{S}=\frac{6}{20}=\frac{3}{10}$\\
+$P(B \ good | A \ good)=\frac{P(B \ good | A \ good)}{S}=\frac{3}{4}$
 \end{center}
-For a randomly selected Mexican American newborn, the probability that both $\mathit{A}$ and $\mathit{B}$ occurs is:
+\item
+Because 
 \begin{center}
-$P(A \cup B)=0.162$
+$P(B \ good)=P(B \ good \cap A \ good)+P(B \ good \cap A \ bad)=\frac{3}{10}+\frac{3}{10}=\frac{3}{5}$
 \end{center}
- \item
- The probability that event $\mathit{A}$ occurs given that event $\mathit{B}$ occurs is:
- \begin{center}
- $P(A|B)=\frac {P(A \cap B)}{P(B)}=\frac {0.031}{0.051} =0.254902$
- \end{center}
+\item
+As we know,
+\begin{center}
+$P(B\ good)P(A\ good | B\ good)=P(A\ good)P(B\ good | A\ good)$
+\end{center}
+Therefore,
+\begin{center}
+$P(A\ good | B\ good)=\frac{P(A\ good)P(B\ good | A\ good)}{P(B \ good)}=  \frac{\frac{3}{5}*\frac{1}{2}}{\frac{3}{5}}=\frac{1}{2}$
+\end{center}
 \end{enumerate}
 \end{homeworkProblem}
 
@@ -279,20 +269,27 @@ $P(A \cup B)=0.162$
 %----------------------------------------------------------------------------------------
 
 \begin{homeworkProblem}
-PG exercise 6.10
 \begin{enumerate}
-\item
-The probability that principal source of payment for given hospital discharge is the patient's private insurance is:
+\item Let:
 \begin{center}
-$P(A)="payment from private insurance"=0.387$
+$P(A \ win)=0.4, P(B\ win)=0.6, and P(C\ win)=0.8$ 
+\end{center}
+Therefore,
+\begin{center}
+$P(team \ wins \ game)=P(W)=P(A \ pitched \ and \ won)P(A)+P(B\ pitched \ and \ won)P(B)+P(C\ pitched \ and \ won)P(C)=.4*.2+.6*.3+.8*.5=.66$
 \end{center}
 \item
-According to the Reference[20] "", 
-\\
-The probability that principal source of payment is Medicare, Medicaid, or some other government program is:
+The possibility of A pitched game with given team win situation, it is:
 \begin{center}
-$P("Payment \ from \ government \ programs") = P("Medicare")+P("Medicaid")+P("Other \ govt. \ program")=0.345+0.116+0.033=0.494$
+$P(A \ pitched \ game | team \ won)=P(A| W)=\frac{P(A\ pitched\ and \ won)}{P(team\ won\ game)}=\frac{.4*.2}{.66}=.1212$
 \end{center}
+\end{enumerate}
+\end{homeworkProblem}
+%-----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%------------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{enumerate}
 \item
 According to the Reference[20], public programs include Medicare, Medicaid, Workers' Compensation, and other government programs. Given that the principal source of payment is a government program, the probability that it is Medicine is:
 \begin{center}
@@ -302,26 +299,6 @@ $= \frac{"Medicare"}{"Payment \ from \ government \ programs"}=\frac{0.345}{0.49
 \end{enumerate}
 %/lipsum [3-5]
 
-\end{homeworkProblem}
-\begin{homeworkProblem}
-PG exercise 6.11
-\begin{enumerate}
-\item
-Considering the 47-year-old woman and the 59-year-old man from this population are unrelated, the probability that both individuals are uninsured is equal and independent. It is:
-\begin{center}
-$P(A' \cap B')= P(A')*P(B')=0.123*0.123=0.015$
-\end{center}
-\item
-The probability that both adults have health insurance is:
-\begin{center}
-$P(A \cap B) =  P(A)*P(B)=(1-0.123)*(1-0.123)=0.769$
-\end{center}
-\item
-For the 5 unrelated 45-64 year-old adults, the probability that all five are uninsured is:
-\begin{center}
-$P(A' \cap B' \cap C' \cap D' \cap E')=P(A') \cap P(B') \cap P(C') \cap P(D') \cap P(E') =0.123^5=2.815*10^{-5} $
-\end{center}
-\end{enumerate}
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
 
